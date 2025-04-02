@@ -1,12 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   header.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manandre <manandre@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 13:43:34 by manandre          #+#    #+#             */
-/*   Updated: 2025-04-02 13:43:34 by manandre         ###   ########.fr       */
+/*   Created: 2025-04-02 15:11:14 by manandre          #+#    #+#             */
+/*   Updated: 2025-04-02 15:11:14 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <iomanip>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sstream>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
+
+# define MaxLength 10
+# define MaxIndex 8
