@@ -1,53 +1,44 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Makefile                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: manandre <manandre@student.42.fr>          #+#  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-03-31 11:28:00 by manandre          #+#    #+#             */
-/*   Updated: 2025-03-31 11:28:00 by manandre         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 
 
 NAME = awesome
 
 # directories
-SRC_DIR		=	src/
-OBJ_DIR		=	obj/
-INC_DIR		=	include/
+SRC_DIR = src/
+OBJ_DIR = obj/
+INC_DIR = include/
 
-#source files
-SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
+# source files (sem diretórios)
+SRC_FILES = main.cpp PhoneBook.cpp Contact.cpp
+OBJ_FILES = main.o PhoneBook.o Contact.o
 
-OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
-
-#paths
-SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
-
+# compiler and flags
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
+# default target
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+# final binary
+$(NAME): $(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
+	$(CC) $(CFLAGS) $^ -o $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp | $(OBJ_DIR)
+# rule to build obj/file.o from src/file.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# create object directory
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
+# clean object files
 clean:
 	rm -rf $(OBJ_DIR)
 
+# clean all
 fclean: clean
 	rm -f $(NAME)
 
+# rebuild
 re: fclean all
 
 .PHONY: all clean fclean re
