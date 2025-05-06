@@ -10,3 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PhoneBook.hpp"
+
+std::string PhoneBook::getFistName(int index){
+    return PhoneBook::contats[index].getFirstName();
+}
+
+std::string PhoneBook::getLastName(int index){
+    return PhoneBook::contats[index].getLastName();
+}
+
+std::string PhoneBook::getNickname(int index){
+    return PhoneBook::contats[index].getNickname();
+}
+
+std::string PhoneBook::getPhoneNumber(int index){
+    return PhoneBook::contats[index].getPhoneNumber();
+}
+
+std::string PhoneBook::setContactId(){
+    
+}

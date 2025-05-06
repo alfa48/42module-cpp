@@ -17,14 +17,15 @@
 #include "header.hpp"
 
 class PhoneBook{
-    Contact contatos[MaxIndex];
+    private:
+        Contact contats[MaxIndex];
 
     private:
-        std::string getFistName(int index){};
-        std::string getLastName(int index){};
-        std::string getNickname(int index){};
-        std::string getPhoneNumber(int index){};
-        std::string getDarkestSecret(int index){};
+        std::string getFistName(int index);
+        std::string getLastName(int index);
+        std::string getNickname(int index);
+        std::string getPhoneNumber(int index);
+        std::string getDarkestSecret(int index);
 
     public:
         void setContactId(){};
