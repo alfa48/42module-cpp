@@ -27,7 +27,3 @@ std::string PhoneBook::getNickname(int index){
 std::string PhoneBook::getPhoneNumber(int index){
     return PhoneBook::contats[index].getPhoneNumber();
 }
-
-std::string PhoneBook::setContactId(){
-    
-}
