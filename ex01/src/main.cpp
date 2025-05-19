@@ -7,17 +7,18 @@
 #include <stdio.h>
 #include "PhoneBook.hpp"
 
-//utils
-bool isOnlySpaces(const std::string& str) {
-	unsigned int	i = 0;
-    while (i < str.length()) {
-        if (str[i] == ' ')
-            return true;
+// utils
+bool isOnlySpaces(const std::string &str)
+{
+	unsigned int i = 0;
+	while (i < str.length())
+	{
+		if (str[i] != ' ')
+			return false;
 		i++;
-    }
-    return false;
+	}
+	return true;
 }
-
 
 int main(void)
 {
@@ -48,12 +49,24 @@ int main(void)
 				std::getline(std::cin, firstName);
 				if (firstName.empty() || isOnlySpaces(firstName))
 				{
-					std::cout << "your don't have empty first name, please enter you first name:\n";
+					std::cout << "your don't have empty first name.\nPlease enter you first name:\n";
 					std::getline(std::cin, firstName);
 				}
 			}
 
-			std::cout << "Your first name is: " << firstName << std::endl;
+			std::cout << "Enter your lastName:\n";
+			while (firstName.empty() || isOnlySpaces(lastName))
+			{
+				std::getline(std::cin, lastName);
+				if (lastName.empty() || isOnlySpaces(lastName))
+				{
+					std::cout << "your don't have empty lastName.\nPlease enter you lastName:\n";
+					std::getline(std::cin, lastName);
+				}
+			}
+
+			std::cout << "Your first name is: " << firstName << "and Your last name is: " << lastName << std::endl;
+			sleep(2);
 		}
 		else if (input == "SEARCH")
 		{

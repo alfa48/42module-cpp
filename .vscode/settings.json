@@ -102,6 +102,10 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp",
-    "microshell.h": "c"
+    "microshell.h": "c",
+    "ctime": "cpp",
+    "iomanip": "cpp",
+    "sstream": "cpp",
+    "cinttypes": "cpp"
   }
 }
