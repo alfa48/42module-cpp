@@ -24,6 +24,7 @@ class Contact {
         std::string nickname;
         std::string phoneNumber;
         std::string darkestSecret;
+        int used;
 
     public:
         Contact(std::string firstName, std::string lastName,std::string nickname,std::string phoneNumber,std::string darkestSecret);
@@ -42,6 +43,7 @@ class Contact {
         void setDarkestSecret(std::string darkestSecret);
 
         void showContact();
+        int isUsed();
 };
 
 #endif

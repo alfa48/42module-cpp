@@ -19,6 +19,7 @@ Contact::Contact(std::string fistName, std::string lastName, std::string nicknam
     this->nickname = nickname;
     this->phoneNumber = phoneNumber;
     this->darkestSecret = darkestSecret;
+    this->isUsed = 1;
 }
 
 //getters
@@ -61,4 +62,8 @@ void Contact::setPhoneNumber(std::string phoneNumber){
 
 void Contact::setDarkestSecret(std::string darkestSecret){
     this->darkestSecret = darkestSecret;
+}
+
+int Contact::isUsed(){
+    return this->isUsed;
 }
