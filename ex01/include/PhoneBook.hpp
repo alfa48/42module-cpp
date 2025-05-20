@@ -19,10 +19,10 @@
 class PhoneBook
 {
 private:
-    Contact contats[MaxIndex];
+    Contact contacts[MaxIndex];
 
 private:
-    std::string getFistName(int index);
+    std::string getFirstName(int index);
     std::string getLastName(int index);
     std::string getNickname(int index);
     std::string getPhoneNumber(int index);
@@ -31,16 +31,19 @@ private:
 public:
     void setContactIndex(int index, std::string first, std::string last, std::string nick, std::string number, std::string secret)
     {
-        contats[index].setFirstName(first);
-        contats[index].setLastName(last);
-        contats[index].setNickname(nick);
-        contats[index].setPhoneNumber(number);
-        contats[index].setDarkestSecret(secret);
+        contacts[index].setFirstName(first);
+        contacts[index].setLastName(last);
+        contacts[index].setNickname(nick);
+        contacts[index].setPhoneNumber(number);
+        contacts[index].setDarkestSecret(secret);
+        contacts[index].usedContact();
     }
 
-    int isContactUsed(index){
-        return contats[index].isUsed();
-    }   
+    int isContactUsed(int index){
+        return contacts[index].isUsed();
+    }
+
+    void ListPhoneBook();   
 };
 
 #endif

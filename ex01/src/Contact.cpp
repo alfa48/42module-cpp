@@ -12,14 +12,16 @@
 
 #include "Contact.hpp"
 
-//constructor
+//constructores
+Contact::Contact(){
+    this->used = 0;
+}
 Contact::Contact(std::string fistName, std::string lastName, std::string nickname, std::string phoneNumber, std::string darkestSecret){
     this->firstName = fistName;
     this->lastName = lastName;
     this->nickname = nickname;
     this->phoneNumber = phoneNumber;
     this->darkestSecret = darkestSecret;
-    this->isUsed = 1;
 }
 
 //getters
@@ -64,6 +66,10 @@ void Contact::setDarkestSecret(std::string darkestSecret){
     this->darkestSecret = darkestSecret;
 }
 
+void Contact::usedContact(){
+    this->used = 1;
+}
+
 int Contact::isUsed(){
-    return this->isUsed;
+    return this->used;
 }

@@ -42,7 +42,7 @@ int main(void)
 
 			while (phonebook.isContactUsed(index))
 			{
-				if (index == MaxIndex - 1)
+				if (index == MaxIndex)
 				{
 					index = 0;
 					break;
@@ -116,15 +116,27 @@ int main(void)
 		}
 		else if (input == "SEARCH")
 		{
-			std::cout << "voce digitou SEARCH\n";
+			std::system("clear");
+			phonebook.ListPhoneBook();
+			std::cout << "\nType id for full informations: ";
+			std::string input;
+			std::cin >> input;
+			const char *input2 = input.c_str();
+			int id = atoi(input2);
+			if ((id == 0 && input2[0] != '0' && input2[1] == 0) || id < 0 || id > 7 || !phonebook.isContactUsed(id))
+			{
+				std::cout << "Invalid ID";
+				sleep(1);
+				std::system("clear");
+				continue;
+			}
+			std::system("clear");
+			// phonebook.IdPrintContact(index);
 		}
 		else if (input == "EXIT")
 		{
-			std::cout << "voce digitou EXIT\n";
-			return (0);
-		}
-		else if (input == "EXIT Your PhoneBook")
-		{
+			std::cout << "EXIT Your PhoneBook";
+			sleep(1);
 			return (0);
 		}
 	}
