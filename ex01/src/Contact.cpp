@@ -73,3 +73,8 @@ void Contact::usedContact(){
 int Contact::isUsed(){
     return this->used;
 }
+
+void Contact::showContact() {
+	std::cout << "\nFirst name: " +(this->firstName + "\nLast name: " + this->lastName + "\nNickname: " + this->nickname + "\nPhone number: " + this->phoneNumber +
+			  "\nDarkest secret: " + this->darkestSecret + "\n");
+}

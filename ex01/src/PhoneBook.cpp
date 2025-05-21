@@ -59,3 +59,7 @@ void PhoneBook::ListPhoneBook(){
 	}
 	std::cout << separator;
 }
+
+void PhoneBook::showContactIndex(int index){
+	contacts[index].showContact();
+}

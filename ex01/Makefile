@@ -7,18 +7,14 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 INC_DIR = include/
 
-# source files (sem diretórios)
 SRC_FILES = main.cpp PhoneBook.cpp Contact.cpp
 OBJ_FILES = main.o PhoneBook.o Contact.o
 
-# compiler and flags
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
-# default target
 all: $(NAME)
 
-# final binary
 $(NAME): $(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
 	$(CC) $(CFLAGS) $^ -o $@
 

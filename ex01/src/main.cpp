@@ -20,6 +20,20 @@ bool isOnlySpaces(const std::string &str)
 	return true;
 }
 
+bool isNum(std::string input)
+{
+	bool rs = true;
+	for (size_t i = 0; i < input.length(); ++i)
+	{
+		if (!isdigit(input[i]))
+		{
+			rs = false;
+			break;
+		}
+	}
+	return rs;
+}
+
 int main(void)
 {
 	std::cout << "Your PhoneBook\n";
@@ -32,7 +46,7 @@ int main(void)
 	{
 		std::system("clear");
 		std::cout << "Please input option...\n";
-		std::cout << "ADD; SEARCH; EXIT\n";
+		std::cout << "[ADD]/[SEARCH]/[EXIT]: ";
 
 		std::string input;
 		std::cin >> input;
@@ -59,48 +73,48 @@ int main(void)
 			std::cout << "[ADD]\n";
 			sleep(1);
 			std::system("clear");
-			std::cout << "Enter first name:\n";
+			std::cout << "Enter first name: ";
 			std::cin.ignore();
 			while (firstName.empty() || isOnlySpaces(firstName))
 			{
 				std::getline(std::cin, firstName);
 				if (firstName.empty() || isOnlySpaces(firstName))
 				{
-					std::cout << "First name don't have empty.\nPlease enter first name:\n";
+					std::cout << "First name don't have empty.\nPlease enter first name: ";
 				}
 			}
 
-			std::cout << "Enter last name:\n";
+			std::cout << "Enter last name: ";
 			while (firstName.empty() || isOnlySpaces(lastName))
 			{
 				std::getline(std::cin, lastName);
 				if (lastName.empty() || isOnlySpaces(lastName))
 				{
-					std::cout << "Last name don't have empty.\nPlease enter last name:\n";
+					std::cout << "Last name don't have empty.\nPlease enter last name: ";
 				}
 			}
 
-			std::cout << "Enter nickname:\n";
+			std::cout << "Enter nickname: ";
 			while (nickName.empty() || isOnlySpaces(nickName))
 			{
 				std::getline(std::cin, nickName);
 				if (nickName.empty() || isOnlySpaces(nickName))
 				{
-					std::cout << "Nickname don't have empty.\nPlease enter nickname:\n";
+					std::cout << "Nickname don't have empty.\nPlease enter nickname: ";
 				}
 			}
 
-			std::cout << "Enter phone number:\n";
+			std::cout << "Enter phone number: ";
 			while (phoneNumber.empty() || isOnlySpaces(phoneNumber))
 			{
 				std::getline(std::cin, phoneNumber);
 				if (phoneNumber.empty() || isOnlySpaces(phoneNumber))
 				{
-					std::cout << "Phone number don't have empty.\nPlease enter phone number:\n";
+					std::cout << "Phone number don't have empty.\nPlease enter phone number: ";
 				}
 			}
 
-			std::cout << "Enter darkest secret:\n"; // pode estar emply
+			std::cout << "Enter darkest secret: "; // pode estar emply
 			while (darkestSecret.empty() || isOnlySpaces(darkestSecret))
 			{
 				std::getline(std::cin, darkestSecret);
@@ -118,24 +132,26 @@ int main(void)
 		{
 			std::system("clear");
 			phonebook.ListPhoneBook();
-			std::cout << "\nType id for full informations: ";
+			std::cout << "\nenter the index for complete information: ";
 			std::string input;
 			std::cin >> input;
 			const char *input2 = input.c_str();
-			int id = atoi(input2);
-			if ((id == 0 && input2[0] != '0' && input2[1] == 0) || id < 0 || id > 7 || !phonebook.isContactUsed(id))
+			int ptr = atoi(input2);
+			if (!isNum(input) || ptr < 0 || ptr > 7 || !phonebook.isContactUsed(ptr))
 			{
-				std::cout << "Invalid ID";
+				std::cout << "Invalid index. \n";
 				sleep(1);
 				std::system("clear");
 				continue;
 			}
 			std::system("clear");
-			// phonebook.IdPrintContact(index);
+			phonebook.showContactIndex(ptr);
+			std::cout << "\nType something to exit: \n";
+			std::cin >> input;
 		}
 		else if (input == "EXIT")
 		{
-			std::cout << "EXIT Your PhoneBook";
+			std::cout << "Exit Your PhoneBook\n";
 			sleep(1);
 			return (0);
 		}

@@ -40,10 +40,13 @@ public:
     }
 
     int isContactUsed(int index){
-        return contacts[index].isUsed();
+        if (index <= 6 && index >= 0)
+            return contacts[index].isUsed();
+        return 0;
     }
 
     void ListPhoneBook();   
+    void showContactIndex(int index);
 };
 
 #endif

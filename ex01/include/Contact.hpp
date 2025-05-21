@@ -42,9 +42,9 @@ public:
     void setPhoneNumber(std::string nickname);
     void setDarkestSecret(std::string darkestSecret);
 
-    void showContact();
     void usedContact();
     int isUsed();
+    void showContact();
 };
 
 #endif
