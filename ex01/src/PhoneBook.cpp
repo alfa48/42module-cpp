@@ -62,6 +62,7 @@ void PhoneBook::listPhoneBook()
 			truncateAndReplace(lastname);
 			std::string nickname = getNickname(id);
 			truncateAndReplace(nickname);
+
 			std::cout << "|" << std::setw(10) << id
 					  << "|" << std::setw(10) << firstname
 					  << "|" << std::setw(10) << lastname

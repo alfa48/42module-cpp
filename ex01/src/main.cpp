@@ -51,10 +51,6 @@ int main(void)
 		std::system("clear");
 		if (input == "ADD")
 		{
-			std::cout << "DEBUG::::::: " << index << std::endl;
-
-			// lógica circular
-
 			std::string firstName;
 			std::string lastName;
 			std::string nickName;
@@ -109,7 +105,7 @@ int main(void)
 				}
 			}
 
-			std::cout << "Enter darkest secret: "; // pode estar emply
+			std::cout << "Enter darkest secret: ";
 			std::getline(std::cin, darkestSecret);
 
 			phonebook.setContactIndex(index, firstName, lastName, nickName, phoneNumber, darkestSecret);
@@ -121,14 +117,14 @@ int main(void)
 		{
 			std::system("clear");
 			phonebook.listPhoneBook();
-			std::cout << "\nType id for full informations: ";
+			std::cout << "\nType index for full informations: ";
 			std::string input;
 			std::cin >> input;
 			const char *input2 = input.c_str();
 
 			int id = atoi(input2);
 
-			if (!isValidNumber(input) || id < 0 || id > 7 || !phonebook.isContactUsed(id))
+			if (!isValidNumber(input) || id < 0 || id > MaxIndex || !phonebook.isContactUsed(id))
 			{
 				std::cout << "Invalid index\n";
 				sleep(1);
@@ -138,11 +134,13 @@ int main(void)
 
 			std::system("clear");
 			phonebook.printContactId(id);
-			sleep(3);
+			std::cin.ignore(10000, '\n');
+			std::cout << "Press Enter to continue...";
+			std::cin.get();
 		}
 		else if (input == "EXIT")
 		{
-			std::cout << "EXIT Your PhoneBook\n";
+			std::cout << "Exit Your PhoneBook\n";
 			sleep(1);
 			return (0);
 		}
