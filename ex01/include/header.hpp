@@ -19,4 +19,4 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-# define MaxIndex 7
+# define MaxIndex 8

@@ -43,7 +43,9 @@ public:
         return contacts[index].isUsed();
     }
 
-    void ListPhoneBook();   
+    void listPhoneBook();
+
+    void  printContactId(int index);
 };
 
 #endif
