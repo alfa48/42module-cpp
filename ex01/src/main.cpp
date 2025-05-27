@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include "PhoneBook.hpp"
 
-// utils
 bool isOnlySpaces(const std::string &str)
 {
 	unsigned int i = 0;
