@@ -1,13 +1,19 @@
-/*
- * HEADER 42 MANNADRE
- *
- * */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/29 20:24:04 by manandre          #+#    #+#             */
+/*   Updated: 2025/05/29 20:40:49 by manandre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include "PhoneBook.hpp"
 
-// utils
 bool isOnlySpaces(const std::string &str)
 {
 	unsigned int i = 0;
@@ -95,13 +101,13 @@ int main(void)
 			}
 
 			std::cout << "Enter phone number: ";
-			while (phoneNumber.empty() || isOnlySpaces(phoneNumber))
+			while (phoneNumber.empty() || isOnlySpaces(phoneNumber) || isValidNumber(phoneNumber))
 			{
 				std::getline(std::cin, phoneNumber);
 				if (phoneNumber.empty() || isOnlySpaces(phoneNumber))
 				{
 					std::system("clear");
-					std::cout << "Phone number don't have empty.\nPlease enter phone number: ";
+					std::cout << "Invalid phone number\nPlease enter phone number: ";
 				}
 			}
 

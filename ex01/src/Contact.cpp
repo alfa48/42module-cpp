@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manandre <manandre@student.42.fr>          #+#  +:+       +#+        */
+/*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-04-02 13:20:30 by manandre          #+#    #+#             */
-/*   Updated: 2025-04-02 13:20:30 by manandre         ###   ########.fr       */
+/*   Created: 2025/04/02 13:20:30 by manandre          #+#    #+#             */
+/*   Updated: 2025/05/29 20:26:43 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-// constructores
 Contact::Contact()
 {
     this->used = 0;
@@ -27,7 +26,6 @@ Contact::Contact(std::string fistName, std::string lastName, std::string nicknam
     this->used = 1;
 }
 
-// gettersthis->used = 0;
 std::string Contact::getFirstName()
 {
     return (this->firstName);
