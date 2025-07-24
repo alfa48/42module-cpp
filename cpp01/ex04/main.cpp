@@ -9,23 +9,17 @@ std::string replaceAll(const std::string &str, const std::string &to, const std:
     size_t posInicio = 0;
     size_t posEncontrada = str.find(to, posInicio);
 
-    // Enquanto encontrar a substring "to"
     while (posEncontrada != std::string::npos)
     {
-        // Adiciona a parte do str antes da ocorrência
         rstd += str.substr(posInicio, posEncontrada - posInicio);
 
-        // Adiciona a nova palavra
         rstd += from;
 
-        // Atualiza a posição inicial após a ocorrência encontrada
         posInicio = posEncontrada + to.length();
 
-        // Busca próxima ocorrência
         posEncontrada = str.find(to, posInicio);
     }
 
-    // Adiciona o restante do str após a última ocorrência
     rstd += str.substr(posInicio);
 
     return rstd;
