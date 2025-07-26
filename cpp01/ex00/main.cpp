@@ -3,7 +3,7 @@
 int main(void)
 {
     randomChump("Manuel");
-    Zombie *zombie = newZombie("Alfredo");
+    Zombie *zombie = newZombie("Andre");
     delete zombie;
     return (0);
 }

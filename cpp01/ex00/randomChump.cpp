@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-//alocada na heap
+//alocada na stack
 void randomChump(std::string inputName)
 {
     Zombie zombie(inputName);
