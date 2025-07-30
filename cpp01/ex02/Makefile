@@ -1,8 +1,7 @@
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp\
+SRCS = main.cpp \
 
-DEPS = $(SRCS:.cpp=.d)
 OBJS = $(SRCS:.cpp=.o)
-NAME = horde
+NAME = PTRstrREF
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
 RM = rm -f
@@ -13,12 +12,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -MMD -c $< -o $@
-
--include $(DEPS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

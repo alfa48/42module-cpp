@@ -7,6 +7,7 @@ class Zombie
 {
 private:
     std::string name;
+    int p;
 
 public:
     void setName(std::string name);

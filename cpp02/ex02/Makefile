@@ -1,8 +1,8 @@
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp\
+SRCS = main.cpp Fixed.cpp
 
-DEPS = $(SRCS:.cpp=.d)
 OBJS = $(SRCS:.cpp=.o)
-NAME = horde
+DEPS = $(SRCS:.cpp=.d)
+NAME = fixed
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
 RM = rm -f
