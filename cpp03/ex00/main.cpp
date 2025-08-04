@@ -8,6 +8,11 @@ void printSeparator(std::string title = "") {
 }
 
 int main() {
+    unsigned int u = 2;
+        unsigned int u1 = 5;
+
+    int resultado = abs(u - u1);
+    std::cout << resultado << std::endl;
     printSeparator("TESTE 1 - Criando ClapTrap");
     ClapTrap ct1("Alpha");
 
@@ -15,10 +20,10 @@ int main() {
     ct1.attack("TargetBot");
 
     printSeparator("TESTE 3 - Tomando dano");
-    ct1.takeDamage(4); // Deve diminuir os hit points de 10 → 6
+    ct1.takeDamage(4); // Deve diminuir os hit points de 10  6
 
     printSeparator("TESTE 4 - Reparando-se");
-    ct1.beRepaired(3); // Deve aumentar os hit points de 6 → 9
+    ct1.beRepaired(3); // Deve aumentar os hit points de 6  9
 
     printSeparator("TESTE 5 - Energia se esgota");
     for (int i = 0; i < 10; ++i) {
@@ -28,7 +33,8 @@ int main() {
     ct1.beRepaired(5); // Deve falhar (sem energia)
 
     printSeparator("TESTE 6 - Morre ao tomar dano");
-    ct1.takeDamage(50); // Hit points vão a 0
+    ct1.takeDamage(50); // Hit points vai a 0
+     ct1.takeDamage(50); // Hit points vai a 0
     ct1.attack("Mesmo morto"); // Deve falhar
     ct1.beRepaired(10); // Deve falhar
 

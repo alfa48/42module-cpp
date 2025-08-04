@@ -1,5 +1,5 @@
-SRCS = main.cpp ClapTrap.cpp
-HEADER = ClapTrap.hpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+HEADER = ClapTrap.hpp ScavTrap.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = clapTrap
