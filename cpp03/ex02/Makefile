@@ -1,8 +1,8 @@
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
-HEADER = ClapTrap.hpp ScavTrap.hpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+HEADER = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = scavTrap
+NAME = fragTrap
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f

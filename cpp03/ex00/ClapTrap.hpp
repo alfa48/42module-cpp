@@ -2,7 +2,6 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
-#include <cstdlib>  // abs() para int, valor absoluto
 
 class ClapTrap
 {

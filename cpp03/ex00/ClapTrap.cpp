@@ -24,15 +24,19 @@ ClapTrap::~ClapTrap()
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
     std::cout << "ClapTrap assignation operator called" << std::endl;
-    this->name = src.name;
-    this->atackDamage = src.atackDamage;
-    this->energyPts = src.energyPts;
+    if (this != &src)
+    {
+        this->name = src.name;
+        this->hitPts = src.hitPts;
+        this->atackDamage = src.atackDamage;
+        this->energyPts = src.energyPts;
+    }
     return *this;
 }
 
 void ClapTrap::showStatus()
 {
-        std::cout << "ClapTrap " << this->name << "| Energy points (" <<  this->energyPts << ")| Hit points (" << this->hitPts << ")| Attack damage (" << this->atackDamage << ")"<<std::endl;
+    std::cout << "ClapTrap " << this->name << "| Energy points (" << this->energyPts << ")| Hit points (" << this->hitPts << ")| Attack damage (" << this->atackDamage << ")" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
