@@ -1,0 +1,75 @@
+#include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(std::string name) : name(name), hitPts(10), energyPts(10), atackDamage(0)
+{
+    std::cout << "ClapTrap " << name << " constructor called" << std::endl;
+}
+ClapTrap::ClapTrap() : name("name"), hitPts(10), energyPts(10), atackDamage(0)
+{
+    std::cout << "ClapTrap default constructor called" << std::endl;
+}
+ClapTrap::ClapTrap(const ClapTrap &src)
+{
+    std::cout << "ClapTrap copy constructor called" << std::endl;
+    *this = src;
+}
+ClapTrap::~ClapTrap()
+{
+    std::cout << "ClapTrap default destructor" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
+{
+    std::cout << "ClapTrap assignation operator called" << std::endl;
+    this->name = src.name;
+    this->atackDamage = src.atackDamage;
+    this->energyPts = src.energyPts;
+    return *this;
+}
+
+void ClapTrap::attack(const std::string &target)
+{
+    if (energyPts > 0 && hitPts > 0)
+    {
+        std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->atackDamage << " points of damage!" << std::endl;
+        energyPts--;
+    }
+    else if (this->energyPts == 0)
+        std::cout << "ClapTrap " << this->name << " is not able to attack " << target << ", because he has no energy points left" << std::endl;
+    else
+        std::cout << "ClapTrap " << this->name << " is not able to attack " << target << ", because he has not enough hit points" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    if (this->hitPts == 0)
+    {
+        std::cout << "ClapTrap " << this->name << " is already dead, stop beating it" << std::endl;
+        return;
+    }
+    if (this->hitPts > amount)
+        this->hitPts -= amount;
+    else if (this->hitPts > 0)
+        this->hitPts = 0;
+    std::cout << "ClapTrap " << this->name << " was attacked and lost " << amount << " hit points, he now has " << this->hitPts << " hit points" << std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+    if (this->energyPts == 0)
+    {
+        std::cout << "ClapTrap " << this->name << "can’t do anything if it has no energy points left" << std::endl;
+        return;
+    }
+    else if (hitPts == 0)
+    {
+        std::cout << "ClapTrap " << this->name << "can’t do anything if it has no hit points left" << std::endl;
+        return;
+    }
+    else
+    {
+        this->hitPts += amount;
+        std::cout << "ClapTrap " << this->name << " repaired itself and gained " << amount << " of hit points, he now has " << this->hitPts << "hit points." << std::endl;
+        this->energyPts--;
+    }
+}
