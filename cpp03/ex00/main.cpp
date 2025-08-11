@@ -2,44 +2,87 @@
 
 #include "ClapTrap.hpp"
 #include <iostream>
+#include <cstdlib> // abs() para int, valor absoluto
 
-void printSeparator(std::string title = "") {
-    std::cout << "\n=== " << title << " ===\n" << std::endl;
+void printSeparator(std::string title = "")
+{
+    std::cout << "\n=== " << title << " ===\n"
+              << std::endl;
 }
 
-int main() {
-    printSeparator("TESTE 1 - Criando ClapTrap");
-    ClapTrap ct1("Alpha");
+int main()
+{
 
-    printSeparator("TESTE 2 - Atacando normalmente");
-    ct1.attack("TargetBot");
+    /*
+    {
 
-    printSeparator("TESTE 3 - Tomando dano");
-    ct1.takeDamage(4); // Deve diminuir os hit points de 10 → 6
+        unsigned int u = 2;
+        unsigned int u1 = 5;
 
-    printSeparator("TESTE 4 - Reparando-se");
-    ct1.beRepaired(3); // Deve aumentar os hit points de 6 → 9
+        int resultado = abs(u - u1);
+        std::cout << resultado << std::endl;
+        printSeparator("TESTE 1 - Criando ClapTrap");
+        ClapTrap ct1("Alpha");
 
-    printSeparator("TESTE 5 - Energia se esgota");
-    for (int i = 0; i < 10; ++i) {
-        ct1.attack("Dummy"); // Após 10 ataques, energia deve chegar a 0
+        printSeparator("TESTE 2 - Atacando normalmente");
+        ct1.attack("TargetBot");
+
+        printSeparator("TESTE 3 - Tomando dano");
+        ct1.takeDamage(4); // Deve diminuir os hit points de 10  6
+
+        printSeparator("TESTE 4 - Reparando-se");
+        ct1.beRepaired(3); // Deve aumentar os hit points de 6  9
+
+        printSeparator("TESTE 5 - Energia se esgota");
+        for (int i = 0; i < 10; ++i)
+        {
+            ct1.attack("Dummy"); // Após 10 ataques, energia deve chegar a 0
+        }
+        ct1.attack("DummySemEnergia"); // Deve falhar (sem energia)
+        ct1.beRepaired(5);             // Deve falhar (sem energia)
+
+        printSeparator("TESTE 6 - Morre ao tomar dano");
+        ct1.takeDamage(50);        // Hit points vai a 0
+        ct1.takeDamage(50);        // Hit points vai a 0
+        ct1.attack("Mesmo morto"); // Deve falhar
+        ct1.beRepaired(10);        // Deve falhar
+
+        printSeparator("TESTE 7 - Vários ClapTraps");
+        ClapTrap ct2("Bravo");
+        ClapTrap ct3("Charlie");
+        ct2.attack("Alvo1");
+        ct3.takeDamage(5);
+        ct3.beRepaired(2);
+
+        printSeparator("FIM DOS TESTES");
     }
-    ct1.attack("DummySemEnergia"); // Deve falhar (sem energia)
-    ct1.beRepaired(5); // Deve falhar (sem energia)
+        */
 
-    printSeparator("TESTE 6 - Morre ao tomar dano");
-    ct1.takeDamage(50); // Hit points vão a 0
-    ct1.attack("Mesmo morto"); // Deve falhar
-    ct1.beRepaired(10); // Deve falhar
+    {
 
-    printSeparator("TESTE 7 - Vários ClapTraps");
-    ClapTrap ct2("Bravo");
-    ClapTrap ct3("Charlie");
-    ct2.attack("Alvo1");
-    ct3.takeDamage(5);
-    ct3.beRepaired(2);
+        std::cout << "\n=== Criando ClapTrap ===" << std::endl;
+        ClapTrap ct1("Robôzinho");
 
-    printSeparator("FIM DOS TESTES");
+        std::cout << "\n=== Testando ataque ===" << std::endl;
+        ct1.attack("Alvo");
+
+        std::cout << "\n=== Testando dano ===" << std::endl;
+        ct1.takeDamage(5);
+
+        std::cout << "\n=== Testando reparo ===" << std::endl;
+        ct1.beRepaired(3);
+
+        std::cout << "\n=== Testando cópia ===" << std::endl;
+        ClapTrap ct2 = ct1; // Construtor de cópia
+        ct2.attack("Outro Alvo");
+
+        std::cout << "\n=== Testando atribuição ===" << std::endl;
+        ClapTrap ct3;
+        ct3 = ct1; // operador de atribuição
+        ct3.attack("Mais um Alvo");
+
+        std::cout << "\n=== Fim do teste ===" << std::endl;
+    }
 
     return 0;
 }

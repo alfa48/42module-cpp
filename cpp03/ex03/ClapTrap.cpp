@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPts(10), energyPts(10), atackDamage(0)
+ClapTrap::ClapTrap(std::string name) : name(name), hitPts(10), energyPts(10), attackDamage(0)
 {
     std::cout << "ClapTrap " << name << " constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap() : name("clapTrap_junior"), hitPts(10), energyPts(10), atackDamage(0)
+ClapTrap::ClapTrap() : name("clapTrapDefault"), hitPts(10), energyPts(10), attackDamage(0)
 {
     std::cout << "ClapTrap default constructor called" << std::endl;
 }
@@ -15,10 +15,7 @@ ClapTrap::ClapTrap(const ClapTrap &src)
     std::cout << "ClapTrap copy constructor called" << std::endl;
     *this = src;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> ae46d5c29c945b11f650f008bb514f0491c60d06
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap default destructor" << std::endl;
@@ -31,7 +28,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src)
     {
         this->name = src.name;
         this->hitPts = src.hitPts;
-        this->atackDamage = src.atackDamage;
+        this->attackDamage = src.attackDamage;
         this->energyPts = src.energyPts;
     }
     return *this;
@@ -39,14 +36,14 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 
 void ClapTrap::showStatus()
 {
-    std::cout << "ClapTrap " << this->name << "| Energy points (" << this->energyPts << ")| Hit points (" << this->hitPts << ")| Attack damage (" << this->atackDamage << ")" << std::endl;
+    std::cout << "ClapTrap " << this->name << "| Energy points (" << this->energyPts << ")| Hit points (" << this->hitPts << ")| Attack damage (" << this->attackDamage << ")" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)
 {
     if (energyPts > 0 && hitPts > 0)
     {
-        std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->atackDamage << " points of damage!" << std::endl;
+        std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
         this->energyPts--;
     }
     else if (this->energyPts == 0)
