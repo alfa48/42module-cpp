@@ -19,6 +19,8 @@ int main()
 
     std::cout << " \n\n " << std::endl;
     std::cout << " \n\n " << std::endl;
+    std::cout << " \n\n " << std::endl;
+
 
     {
         const AAnimal *j = new Dog();
@@ -35,12 +37,13 @@ int main()
 
     std::cout << " \n\n " << std::endl;
     std::cout << " \n\n " << std::endl;
+    std::cout << " \n\n " << std::endl;
+
 
     {
         const int size = 10;
         AAnimal *animals[size];
 
-        // Preenche metade com Dog e metade com Cat
         for (int i = 0; i < size / 2; ++i)
             animals[i] = new Dog();
 
@@ -51,13 +54,11 @@ int main()
 
         std::cout << " \n\n " << std::endl;
 
-        // Testa os sons
         for (int i = 0; i < size; ++i)
             animals[i]->makeSound();
 
         std::cout << " \n\n " << std::endl;
 
-        // Deleta todos como Animal*
         for (int i = 0; i < size; ++i)
             delete animals[i];
     }
