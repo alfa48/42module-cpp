@@ -1,6 +1,5 @@
-SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp Brain.cpp
-HEADER = Animal.hpp Dog.hpp Cat.hpp Brain.hpp
-DEPS = $(HEADER:.hpp=.d)
+SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+HEADER = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = animal
