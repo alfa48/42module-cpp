@@ -73,12 +73,14 @@ int main()
     }
 
     {
-        Dog dog;
-        dog.getBrain()->setIdea(0, "Correr atrás da bola");
-        std::cout << "Dog idea: " << dog.getBrain()->getIdea(0) << std::endl;
+        const int n = 4;
+        AAnimal *animals[n] = {new Dog(), new Dog(), new Cat(), new Cat()};
 
-        Dog copyDog = dog;
-        std::cout << "CopyDog idea: " << copyDog.getBrain()->getIdea(0) << std::endl;
+        for (int i = 0; i < n; ++i)
+            animals[i]->makeSound();
+
+        for (int i = 0; i < n; ++i)
+            delete animals[i];
     }
 
     return 0;
