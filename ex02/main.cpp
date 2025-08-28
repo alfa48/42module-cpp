@@ -21,7 +21,6 @@ int main()
     std::cout << " \n\n " << std::endl;
     std::cout << " \n\n " << std::endl;
 
-
     {
         const AAnimal *j = new Dog();
         const AAnimal *i = new Cat();
@@ -38,7 +37,6 @@ int main()
     std::cout << " \n\n " << std::endl;
     std::cout << " \n\n " << std::endl;
     std::cout << " \n\n " << std::endl;
-
 
     {
         const int size = 10;
@@ -61,6 +59,26 @@ int main()
 
         for (int i = 0; i < size; ++i)
             delete animals[i];
+    }
+
+    {
+        AAnimal *dog = new Dog();
+        AAnimal *cat = new Cat();
+
+        dog->makeSound();
+        cat->makeSound();
+
+        delete dog;
+        delete cat;
+    }
+
+    {
+        Dog dog;
+        dog.getBrain()->setIdea(0, "Correr atrás da bola");
+        std::cout << "Dog idea: " << dog.getBrain()->getIdea(0) << std::endl;
+
+        Dog copyDog = dog;
+        std::cout << "CopyDog idea: " << copyDog.getBrain()->getIdea(0) << std::endl;
     }
 
     return 0;
